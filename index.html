@@ -1,1 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Anushka ❤️</title>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    overflow:hidden;
+    background:linear-gradient(135deg,#180014,#4b0828,#12000f);
+    color:#fff;
+    font-family:Georgia,serif;
+}
+
+/* PAGES */
+
+.page{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.page.active{
+    display:flex;
+    animation:fadeIn .8s ease;
+}
+
+.content{
+    width:100%;
+    max-width:700px;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+h2{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* BUTTON */
+
+button{
+    margin-top:28px;
+    padding:14px 28px;
+    border:0;
+    border-radius:30px;
+    background:#ff4f91;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 8px 25px rgba(255,79,145,.4);
+}
+
+button:active{
+    transform:scale(.96);
+}
+
+/* =========================
+   BIG ROTATING PHOTOS
+========================= */
+
+.orbit{
+    width:360px;
+    height:360px;
+    margin:20px auto 5px;
+    position:relative;
+    animation:orbitRotate 20s linear infinite;
+}
+
+.orbitRing{
+    position:absolute;
+    inset:0;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:50%;
+}
+
+.orbitPhoto{
+    position:absolute;
+    width:115px;
+    height:155px;
+    overflow:hidden;
+    border-radius:18px;
+    border:3px solid rgba(255,255,255,.9);
+    background:#111;
+    box-shadow:0 10px 35px rgba(0,0,0,.6);
+}
+
+.orbitPhoto img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.p1{
+    top:-25px;
+    left:122px;
+}
+
+.p2{
+    top:40px;
+    right:-30px;
+}
+
+.p3{
+    bottom:40px;
+    right:-30px;
+}
+
+.p4{
+    bottom:-25px;
+    left:122px;
+}
+
+.p5{
+    bottom:40px;
+    left:-30px;
+}
+
+.p6{
+    top:40px;
+    left:-30px;
+}
+
+@keyframes orbitRotate{
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* MEMORY PHOTO */
+
+.memoryPhoto{
+    width:280px;
+    max-width:90%;
+    max-height:45vh;
+    object-fit:contain;
+    display:block;
+    margin:15px auto;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.6);
+}
+
+/* LETTER */
+
+.letter{
+    width:100%;
+    max-height:70vh;
+    overflow-y:auto;
+    padding:25px;
+    text-align:left;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:25px;
+    backdrop-filter:blur(10px);
+}
+
+.letter p{
+    font-size:17px;
+    line-height:1.9;
+    margin-bottom:16px;
+}
+
+/* HEARTS */
+
+.heart{
+    position:fixed;
+    bottom:-40px;
+    z-index:10;
+    pointer-events:none;
+    animation:heartUp 7s linear forwards;
+}
+
+@keyframes heartUp{
+
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* CONFETTI */
+
+.confetti{
+    position:fixed;
+    top:-20px;
+    width:8px;
+    height:14px;
+    background:white;
+    z-index:20;
+    animation:confettiDown 4s linear forwards;
+}
+
+@keyframes confettiDown{
+
+    from{
+        transform:translateY(0) rotate(0);
+    }
+
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+
+/* FADE */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:scale(.96);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+    h1{
+        font-size:32px;
+    }
+
+    h2{
+        font-size:25px;
+    }
+
+    p{
+        font-size:16px;
+    }
+
+    .orbit{
+        width:320px;
+        height:320px;
+    }
+
+    .orbitPhoto{
+        width:100px;
+        height:135px;
+    }
+
+    .p1,
+    .p4{
+        left:110px;
+    }
+
+    .p2,
+    .p3{
+        right:-18px;
+    }
+
+    .p5,
+    .p6{
+        left:-18px;
+    }
+
+    .letter{
+        padding:20px;
+        max-height:68vh;
+    }
+
+    .letter p{
+        font-size:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+
+<audio id="song" loop>
+    <source src="tu_mara_koi_na.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- =========================
+     PAGE 1
+========================= -->
+
+<section class="page active" id="page1">
+
+    <div class="content">
+
+        <h1>Hey Anushka... ❤️</h1>
+
+        <p>
+            Aaj kahi tari special aahe... ✨<br>
+            Pan sagla ekdam sangitla tar<br>
+            surprise cha meaning kay rahil? 👀
+        </p>
+
+        <button id="btn1">
+            Don't Open Yet... ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 2
+========================= -->
+
+<section class="page" id="page2">
+
+    <div class="content">
+
+        <h2>Can you guess what's next? 👀</h2>
+
+        <div class="orbit">
+
+            <div class="orbitRing"></div>
+
+            <div class="orbitPhoto p1">
+                <img src="photo1.jpg" alt="Memory 1">
+            </div>
+
+            <div class="orbitPhoto p2">
+                <img src="photo2.jpg" alt="Memory 2">
+            </div>
+
+            <div class="orbitPhoto p3">
+                <img src="photo3.jpg" alt="Memory 3">
+            </div>
+
+            <div class="orbitPhoto p4">
+                <img src="photo4.jpg" alt="Memory 4">
+            </div>
+
+            <div class="orbitPhoto p5">
+                <img src="photo5.jpg" alt="Memory 5">
+            </div>
+
+            <div class="orbitPhoto p6">
+                <img src="photo6.jpg" alt="Memory 6">
+            </div>
+
+        </div>
+
+        <button id="btn2">
+            Tap To Reveal ❤️
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 3
+========================= -->
+
+<section class="page" id="page3">
+
+    <div class="content">
+
+        <h2>And then... we happened. ❤️</h2>
+
+        <img
+            src="photo1.jpg"
+            class="memoryPhoto"
+            alt="Our Memory"
+        >
+
+        <p>
+            Kahi moments simple astat...
+            pan kahi moments life bhar lakshat rahatat. ❤️
+        </p>
+
+        <button id="btn3">
+            There's More... 💗
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 4
+========================= -->
+
+<section class="page" id="page4">
+
+    <div class="content">
+
+        <h2>For You, Anushka ❤️</h2>
+
+        <div class="letter">
+
+            <p>
+                Kahi nati hi suruvatipasun special nastat...
+                pan halu-halu te aaplya life cha ek beautiful part bantat. ❤️
+            </p>
+
+            <p>
+                Aapan school madhye ekmekanna olkhat hoto,
+                pan tevha kadhi bollo nahi.
+                School samplyanantar halu-halu
+                aapli bolnyachi suruvat zali.
+            </p>
+
+            <p>
+                Ekda mi tula propose kel hota...
+                pan tevha tu nahi mhanalis.
+                Tya veles khup kahi manaat hota,
+                pan mi te accept kel.
+            </p>
+
+            <p>
+                Nantar almost ek full year gela...
+                ani punha aapli talking suru zali.
+                Kadhi vatlach navhta ki
+                aapli story punha itki beautiful hoil.
+            </p>
+
+            <p>
+                Ani mag ek divas...
+                mi punha tula propose kel.
+                Ya veli tu ho mhanalis. ❤️
+            </p>
+
+            <p>
+                Tya eka "Ho" mule
+                majhya life madhla ek beautiful chapter suru zala.
+            </p>
+
+            <p>
+                Anushka, tu majhya life madhye aali
+                ani khup kahi change zala.
+                Tujhyasobat asताना mala
+                happiness, peace ani ek veglach comfort feel hoto.
+            </p>
+
+            <p>
+                Mi perfect nahi...
+                majhyakadun mistakes hotil,
+                kadhi kadhi mi silent hoil,
+                kadhi feelings properly express nahi karu shakel...
+                pan ek goshta nakki —
+                tu majhyasathi khup special ahes. ❤️
+            </p>
+
+            <p>
+                Thank you majhya life madhye yenyasathi,
+                mala samjun ghenyasathi
+                ani majhyasobat rahilyasathi.
+            </p>
+
+            <p>
+                Tujha birthday fakt tuzha special day nahi...
+                tar majhyasathi pan ek special day aahe,
+                karan ya divshi majhya favourite person cha birthday aahe. ❤️
+            </p>
+
+            <p>
+                Happy Birthday Anushka! 🎂❤️
+                Always smile, always be happy...
+                ani ho,
+                majhya life madhye asach rah. 🫶
+            </p>
+
+            <p style="text-align:center;font-size:22px;">
+                I Love You ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+var currentPage = 1;
+
+function showPage(pageNumber){
+
+    var oldPage = document.getElementById("page" + currentPage);
+    var newPage = document.getElementById("page" + pageNumber);
+
+    if(!oldPage || !newPage){
+        return;
+    }
+
+    oldPage.classList.remove("active");
+    newPage.classList.add("active");
+
+    currentPage = pageNumber;
+
+    createHearts();
+
+    if(pageNumber === 4){
+        createConfetti();
+    }
+}
+
+
+/* BUTTON 1 */
+
+document.getElementById("btn1").addEventListener("click", function(){
+
+    startMusic();
+    showPage(2);
+
+});
+
+
+/* BUTTON 2 */
+
+document.getElementById("btn2").addEventListener("click", function(){
+
+    startMusic();
+    showPage(3);
+
+});
+
+
+/* BUTTON 3 */
+
+document.getElementById("btn3").addEventListener("click", function(){
+
+    startMusic();
+    showPage(4);
+
+});
+
+
+/* =========================
+   MUSIC
+========================= */
+
+var musicStarted = false;
+
+function startMusic(){
+
+    if(musicStarted){
+        return;
+    }
+
+    var song = document.getElementById("song");
+
+    if(!song){
+        return;
+    }
+
+    var playPromise = song.play();
+
+    if(playPromise !== undefined){
+
+        playPromise
+        .then(function(){
+
+            musicStarted = true;
+
+        })
+        .catch(function(){
+
+            /* Browser may block audio */
+
+        });
+
+    }
+}
+
+
+/* =========================
+   HEARTS
+========================= */
+
+function createHearts(){
+
+    var heartTypes = [
+        "❤️",
+        "💗",
+        "💕",
+        "💖",
+        "💘"
+    ];
+
+    for(var i = 0; i < 7; i++){
+
+        var heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML =
+            heartTypes[
+                Math.floor(
+                    Math.random() * heartTypes.length
+                )
+            ];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 18) + "px";
+
+        heart.style.animationDuration =
+            (5 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function(){
+
+            if(heart.parentNode){
+
+                heart.parentNode.removeChild(heart);
+
+            }
+
+        },8000);
+    }
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function createConfetti(){
+
+    for(var i = 0; i < 60; i++){
+
+        var piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(function(){
+
+            if(piece.parentNode){
+
+                piece.parentNode.removeChild(piece);
+
+            }
+
+        },6000);
+    }
+}
+
+</script>
+
+</body>
+  </html>
